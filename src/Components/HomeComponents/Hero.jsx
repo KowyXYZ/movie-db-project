@@ -10,8 +10,8 @@ function Hero() {
             <img src={stars} alt="" />
             <p className='uppercase text-[18px]'>DRAMA | ACTION | SCI-FI</p>
             <div className='flex '>
-                <img src={play} alt="" />
-                <img src={plus} alt="" />
+                <img src={play} alt="play" />
+                <img src={plus} alt="play" />
             </div>
             <p className='w-[600px]'>Natasha Romanoff, aka Black Widow, confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Pursued by a force that will stop at nothing to bring her down, Natasha must deal with her history as a spy, and the broken relationships left in her wake long before she became an Avenger.
 </p>

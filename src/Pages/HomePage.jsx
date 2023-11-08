@@ -11,8 +11,8 @@ function HomePage() {
         <Hero/>
         <SlideBar/>
         <Navbar/>
-        <MostPopularMovies/>
         <Trending/>
+        <MostPopularMovies/>
     </div>
   )
 }

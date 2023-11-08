@@ -23,21 +23,21 @@ function Search() {
 
     
   return (
-    <div className='w-full py-24'>
+    <div className='w-full py-24 '>
         <div className='mx-24 mb-4'>
             <p className='font-black text-[32px] flex flex-col'>YOUR SEARCH FOR: {Text ? Text : 'Loading'} <span className='text-[18px] text-[gray] font-medium'>Data base is slowly rendering so please be patient</span></p>
         </div>
       <div>
      
         {Text ? <div className=' flex flex-col items-center justify-center gap-8'>
-        
-        <div className='flex flex-wrap gap-12  justify-center items-center'>
+        {Movies?.length === 0 ? <p className='text-center flex justify-center items-center mt-44'>No Results Found</p> : <div className='flex flex-wrap gap-12  justify-center items-center'>
             {Movies?.map((movie, index) => {
                 return(
                    <SearchCard movie={movie} key={index}/>
                 )
             })}
-        </div>
+        </div> }
+        
         
       </div> : <div className='flex justify-center items-center h-screen text-[44px] flex-col'><p>Loading...</p> <p className='text-[20px] text-[gray]'>Enter your movie title again if screen is loading too long.</p></div>}
       

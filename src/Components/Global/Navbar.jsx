@@ -6,6 +6,14 @@ import search from '../../Assets/search.png'
 import { useDispatch } from 'react-redux'
 import { getText } from '../../store/sliceText'
 import { Link, Navigate, redirect, useNavigate } from 'react-router-dom'
+import {motion} from 'framer-motion'
+
+
+import home from '../../Assets/home.png'
+import trending from '../../Assets/trending.png'
+import movies from '../../Assets/tv.png'
+import series from '../../Assets/theatre.png'
+import popular from '../../Assets/romance.png'
 function Navbar() {
 
   const [toggle, setToggle] = useState(false)
@@ -25,9 +33,9 @@ function Navbar() {
   }
 
   return (
-    <div className='flex justify-between px-24 items-center text-[18px] py-4 bg-[#190401] uppercase'>
-      <div>
-        <img className='w-6' src={toggle ? close : menu} alt="" />
+    <div className=' flex justify-between px-24 items-center text-[18px] py-4 bg-[#190401] uppercase '>
+      <div className={`${toggle ? 'opacity-0' : 'opacity-100'}`}>
+        <img className='w-6' src={menu} alt="togle" onClick={() => setToggle(!toggle)} />
       </div>
 
 
@@ -76,7 +84,51 @@ function Navbar() {
 
       </div>
       
+      <motion.div
+      animate={{
+        x: [-100, 0]
+      }}
+      transition={{ease: 'easeInOut', duration: 1}} 
+      className={`${toggle ? 'block' : 'hidden'} z-10 fixed top-0 h-screen left-0 right-[1350px] rounded-r-3xl bottom-0 bg-[#190401d5] border-2 text-[#000] transition-all ease-in-out delay-75`}>
+        <div className='flex justify-end items-start p-12'>
+            <div>
+              <img className='w-6 ' src={close} alt="togle" onClick={() => setToggle(!toggle)} />
+           </div>
+        </div>
 
+        <div className='flex justify-center items-start mx-12 gap-8 flex-col text-[#fff]'>
+          <Link to='/' className='flex justify-center items-center gap-4' onClick={() => setToggle(false)}>
+            <img className='w-6 invert' src={home} alt="home" />
+            <p>Home</p>
+          </Link>
+
+          <Link to='/discover/top-rated' className='flex justify-center items-center gap-4' onClick={() => setToggle(false)}>
+            <img className='w-6 invert' src={popular} alt="home" />
+            <p>Top Rated</p>
+          </Link>
+         
+          <Link to='/discover/trending' className='flex justify-center items-center gap-4' onClick={() => setToggle(false)}>
+            <img className='w-6 invert' src={trending} alt="home" />
+            <p>Trending</p>
+          </Link>
+          
+          <Link to='/discover/series' className='flex justify-center items-center gap-4' onClick={() => setToggle(false)}>
+            <img className='w-6 invert' src={series} alt="home" />
+            <p>TV Shows</p>
+          </Link>
+
+
+          <Link to='/discover/movies' className='flex justify-center items-center gap-4' onClick={() => setToggle(false)}>
+            <img className='w-6 invert' src={movies} alt="home" />
+            <p>Movies</p>
+          </Link>
+        </div>
+
+        <div className='flex justify-end items-start mx-12 mt-44 gap-8 flex-col text-[#fff]' >
+          <Link to='/' onClick={() => setToggle(false)}>Get Help</Link>
+          <Link to='/about' onClick={() => setToggle(false)}>About Us</Link>
+        </div>
+      </motion.div>
     </div>
   )
 }
