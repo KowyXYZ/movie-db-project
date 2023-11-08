@@ -11,6 +11,7 @@ import Upcoming from './Components/Global/Upcoming';
 import Trending from './Components/Global/Trending';
 import TopRated from './Components/Global/TopRated';
 import MovieCard, { movieCardLoader } from './Components/Movie/MovieCard';
+import { seriesCardLoader } from './Components/Movie/SeriesCard';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
 
         <Route path='/search/:text' element={<Search/>}/>
         <Route path='/discover/:id' element={<MovieCard/>} loader={movieCardLoader}/>
+        <Route path='/discover/series/:ids' element={<MovieCard/>} loader={seriesCardLoader}/>
       </Route>
     )
   )

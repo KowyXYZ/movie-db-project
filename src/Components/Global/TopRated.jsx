@@ -11,7 +11,7 @@ function TopRated() {
 
     useEffect(() => {
       const getMovies = async() => {
-        const movies = await fetchData('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1', options)
+        const movies = await fetchData('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
         console.log(movies.results)
         setAllMovies(movies.results)
       }

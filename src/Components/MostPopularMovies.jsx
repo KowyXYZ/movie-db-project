@@ -11,7 +11,7 @@ function MostPopularMovies() {
 
     useEffect(() => {
       const mostPopular = async() => {
-        let data = await fetchData('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1', options)
+        let data = await fetchData('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
 
         setMostPopularMovies(data.results)
       }
